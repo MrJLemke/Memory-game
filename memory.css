@@ -1,0 +1,120 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    height: 100vh;
+    background-color: #EEF9BF;
+    margin: 0; 
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 56px;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    font-weight: 700;
+    color: #75B79E;
+    text-align: center;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    justify-items: center;
+    max-width: 70%;
+}
+
+.card {
+    width: 117px; 
+    height: 146px; 
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+}
+
+.front-face {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.back-face img {
+    max-width: 100px; 
+    max-height: 100px; 
+    margin: auto;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.back-face {
+    background-color: #A7E9AF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.open .back-face {
+    transform: rotateY(180deg);
+}
+
+.card.open .front-face {
+    transform: rotateY(0deg);
+}
+
+.back-face img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.front-face img {
+    width: 70%; 
+    height: 70%;
+    border-radius: 10px;
+}
+
+.card.open .front-face img {
+    display: flex;
+}
+
+.card.closed .front-face img {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 40px;
+        width: 312px;
+        height: 63px;
+        gap: 0px;
+        opacity: 0px;
+
+    }
+
+    #board {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+}
